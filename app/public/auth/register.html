@@ -1,0 +1,52 @@
+<header>
+  <h1>Login or Register</h1>
+</header>     
+        
+
+<form class="ui form warning error segment" ng-submit="register()">
+      <h1>Register</h1>
+    
+      <div class="ui error message" ng-if="registerError">
+        <div class="header">Registration Error</div>
+        <p>There was a problem with your registration</p>
+      </div>       
+        
+      <div class="ui warning message" ng-if="registerValidator">
+        <div class="header">Could you check something!</div>
+        <ul class="list">
+          <li>You forgot your <b>first name</b></li>
+          <li>And also your <b>last name</b></li>
+        </ul>
+      </div>
+    
+      <div class="two error fields">
+        <div class="field">
+          <label>First Name</label>
+          <input placeholder="First Name" type="text" ng-model="registration.firstName">
+          <div class="ui red pointing above ui label" ng-if="invalidFirstName">Enter a first name</div>
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input placeholder="Last Name" type="text" ng-model="registration.lastName">
+          <div class="ui red pointing above ui label" ng-if="invalidLastName">Enter a last name</div>
+        </div>
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input placeholder="Email Address" type="text" ng-model="registration.email">
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input type="password" placeholder="Password" ng-model="registration.password">
+      </div>
+      <div class="field">
+        <label>Confirm Password</label>
+        <input type="password" placeholder="Confirm Password" ng-model="confirmPassword">
+      </div>    
+
+    <button class="ui blue submit button" type="submit">Submit</button>
+</form>
+ 
+<footer>
+    <p>Backdraft Startup App</p>
+</footer>        

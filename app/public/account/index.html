@@ -1,19 +1,21 @@
-<header>
-  <h1>Account Details</h1>
-</header>
-  
-<section>
-    <h2>Account: {{ currentUser.firstName }}, {{ currentUser.lastName }}</h2>
-
-    <h2>Items</h2>
-
-    <ul class="list">
-        <li class="item" ng-repeat="item in currentUser.items">
-              {{ item.pos }}). <strong>{{ item.title }}</strong> - {{ item.time | date:'medium' }}
-        </li>
-    </ul>
-</section>
-        
-<footer>
-    <p>Backdraft Startup App</p>
-</footer>
+<div ng-show="isAuthenticated()">
+    <header>
+      <h1>Account Details</h1>
+    </header>
+      
+    <section>
+        <h2>Account: {{ currentUser.firstName }}, {{ currentUser.lastName }}</h2>
+    
+        <h2>Items</h2>
+    
+        <ul class="list">
+            <li class="item" ng-repeat="item in currentUser.items">
+                  {{ item.pos }}). <strong>{{ item.title }}</strong> - {{ item.time | date:'medium' }}
+            </li>
+        </ul>
+    </section>
+            
+    <footer>
+        <p>Backdraft Startup App</p>
+    </footer>
+</div>
