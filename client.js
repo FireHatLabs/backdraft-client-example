@@ -7,7 +7,7 @@
 var express = require('express');
 var app = express();
 
-app.use(express.static('app/angular-test'));
+app.use(express.static('app'));
 
 var port = 3001;
 app.listen(port);
