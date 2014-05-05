@@ -28,7 +28,7 @@ angular.module('backdraft.controllers', ['backdraft.services'])
 	
 		$scope.login = function () {
 			
-			$scope.loginResult = User.login({include: 'user', rememberMe: true}, $scope.credentials,
+			$scope.loginResult = User.login({}, $scope.credentials,
 				function () {
 					var next = $location.nextAfterLogin || '/';
 					$location.nextAfterLogin = null;

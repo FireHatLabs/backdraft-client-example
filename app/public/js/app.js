@@ -1,5 +1,5 @@
 angular.module('backdraft', [
-	'ngRoute', 'ngAnimate', 'lbServices', 'backdraft.services', 'backdraft.controllers'
+	'ngRoute', 'ngAnimate', 'bdServices', 'backdraft.services', 'backdraft.controllers'
 ])
 
 .config(function ($compileProvider) {

@@ -1,4 +1,4 @@
-angular.module('backdraft.services', ['lbServices'])
+angular.module('backdraft.services', ['bdServices'])
   .factory('AppAuth', function () {
     return {
 			currentUser: null,
@@ -12,6 +12,7 @@ angular.module('backdraft.services', ['lbServices'])
 				} else {
 					console.log('Fetching current user from the server.');
 					this.currentUser = User.getCurrent(function () {
+						console.log ('CurrentUser: Success');
 						// success
 					}, function (response) {
 						console.log('User.getCurrent() err', arguments);
