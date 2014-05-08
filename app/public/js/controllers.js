@@ -42,9 +42,9 @@ angular.module('backdraft.controllers', ['backdraft.services'])
 		};
 			
 		$scope.register = function () {
-			$scope.user = User.save($scope.registration,
+			$scope.user = User.create($scope.registration,
 				function () {
-					$location.path('/');
+					$location.path('/login');
 				},
 				function (res) {
 					$scope.registerError = res.data.error;

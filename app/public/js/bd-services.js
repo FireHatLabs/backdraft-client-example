@@ -11,7 +11,7 @@ module.factory(
 		'User',
 		['LoopBackResource', 'LoopBackAuth', function (Resource, LoopBackAuth) {
 			return Resource( /*jshint -W058 */
-					urlBase,// + '/users/:id',
+					urlBase,
 					{ 'id': '@id' },
 					{
 						'login': {
@@ -60,7 +60,7 @@ module.factory(
 						'create': {
 							url: urlBase + '/users',
 							method: 'POST'
-						},
+						},				
 						'updateOrCreate': {
 							url: urlBase + '/users',
 							method: 'PUT'
