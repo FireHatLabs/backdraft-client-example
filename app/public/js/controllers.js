@@ -30,7 +30,7 @@ angular.module('backdraft.controllers', ['backdraft.services'])
 			
 			$scope.loginResult = User.login({}, $scope.credentials,
 				function () {
-					var next = $location.nextAfterLogin || '/';
+					var next = $location.nextAfterLogin || '/account';
 					$location.nextAfterLogin = null;
 					AppAuth.currentUser = $scope.loginResult.user;
 					$location.path(next);

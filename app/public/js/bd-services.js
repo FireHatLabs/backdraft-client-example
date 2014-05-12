@@ -20,11 +20,11 @@ module.factory(
 							interceptor: {
 								response: function (response) {
 									console.log ("--login:interceptor:response");
-									//var accessToken = response.data;
-									//LoopBackAuth.currentUserId = accessToken.userId;
-									//LoopBackAuth.accessTokenId = accessToken.id;
-									//LoopBackAuth.rememberMe = response.config.params.rememberMe !== false;
-									//LoopBackAuth.save();
+									var accessToken = response.data;
+									LoopBackAuth.currentUserId = accessToken.userId;
+									LoopBackAuth.accessTokenId = accessToken.id;
+									LoopBackAuth.rememberMe = response.config.params.rememberMe !== false;
+									LoopBackAuth.save();
 									return response.resource;
 								}
 							}
