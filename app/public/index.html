@@ -13,10 +13,9 @@
           {{#link-to 'index' tagName="li"}}Home{{/link-to}}
           {{#link-to 'register' tagName="li"}}Sign Up{{/link-to}}
           {{#link-to 'login' tagName="li"}}Log In{{/link-to}}
-          {{#link-to 'items' tagName="li"}}Items{{/link-to}}  
+          {{#link-to 'items' tagName="li"}}Items{{/link-to}}
+          {{#link-to 'account' tagName="li"}}Account{{/link-to}}  
         </ul>
-        
-        <h2>Welcome to Backdraft</h2>
         
         {{outlet}}
     </script>
@@ -146,7 +145,6 @@
         <header>
           <h1>Login or Register</h1>
         </header>     
-                
         
         <form class="ui form warning error segment" ng-submit="register()">
               <h1>Register</h1>
@@ -199,30 +197,24 @@
     
     <script type="text/x-handlebars" id="account">
         <h1>Hello {{firstName}} {{lastName}}</h1>
+        <p>There are {{itemsCount}} items in your account.</p>  
     </script>
     
     <script type="text/x-handlebars" id="items">
         <div class='row'>
               <div class='col-sm-3'>
                 <div class='list-group'>
+                  <ul>
                   {{#each}}
-                    {{#link-to 'item' this classNames='list-group-item'}}
-                      {{title}}
-                    {{/link-to}}
+                      {{#link-to 'item' this classNames='list-group-item' tagName="li"}}{{title}}{{/link-to}}
                   {{/each}}
+                  </ul>
                 </div>
             </div>
             <div class='col-sm-9'>
               {{outlet}}
             </div>
         </div>
-        <!--
-        <ul>
-            {{#each}}
-                <li>{{#link-to 'item' this}}{{title}}{{/link-to}} - {{description}}</li>
-            {{/each}}
-        </ul> 
-        -->
     </script>    
     
     <script type="text/x-handlebars" id="item">
@@ -248,7 +240,11 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/ember.js/1.5.1/ember.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/ember-data.js/1.0.0-beta.7/ember-data.js"></script>
-    
-    <script src="js/app.js"></script>
+  
+    <script src="js/app.js"></script>    
+    <script src="js/routes.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/models.js"></script>
+    <script src="js/fixtures.js"></script>    
 </body>
 </html>
