@@ -228,6 +228,16 @@
     <script type="text/x-handlebars" id="item">
         <h1>{{title}}</h1>
         <p>{{description}}</p>
+        
+        <h2>Comments</h2>
+        <ul>
+            {{#each comments}}
+                <li>{{content}}</li>
+            {{else}}
+                <li><em>No comments yet.</em></li>
+            {{/each}}            
+        </ul>
+
     </script>   
     
     <script type="text/x-handlebars" id="items/index">
