@@ -1,25 +1,28 @@
-bdApp = Ember.Application.create({
+BDApp = Ember.Application.create({
   LOG_TRANSITIONS: true
 });
 
-bdApp.Router.map(function() {
+//BDApp.ApplicationAdapter = DS.RESTAdapter.extend();
+BDApp.ApplicationAdapter = DS.FixtureAdapter.extend();
+
+BDApp.Router.map(function() {
   this.route('register');
   this.route('login');
   this.route('account');
     
   this.resource('items', function () {
-    this.resource('item',  { path: '/:title' });
+    this.resource('item',  { path: '/:item_id' });
   });
   
 });
 
-bdApp.IndexRoute = Ember.Route.extend({
+BDApp.IndexRoute = Ember.Route.extend({
   model: function() {
     return ['red', 'yellow', 'blue'];
   }
 });
 
-bdApp.AccountController = Ember.Controller.extend({
+BDApp.AccountController = Ember.Controller.extend({
   firstName: 'Bobby',
   lastName: 'Tables'
 });
@@ -27,24 +30,26 @@ bdApp.AccountController = Ember.Controller.extend({
 
 // Items ////////////////////////////////
 
-bdApp.ItemsRoute = Ember.Route.extend({
+BDApp.ItemsRoute = Ember.Route.extend({
   model: function() {
-    return bdApp.ITEMS;
+    return this.store.findAll('item');
   }  
 });
 
-bdApp.ItemRoute = Ember.Route.extend({
-  model: function(params) {
-    return bdApp.ITEMS.findBy('title', params.title);
-  }
+
+BDApp.Item = DS.Model.extend({
+  title: DS.attr('string'),
+  description: DS.attr('string')
 });
 
-bdApp.ITEMS = [
+BDApp.Item.FIXTURES = [
   {
+    id: 1,
     title: "One",
     description: "Test Item"
   },
   {
+    id: 2,
     title: "Two",
     description: "Another Test Item"
   }    
