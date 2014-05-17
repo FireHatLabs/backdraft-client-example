@@ -13,6 +13,7 @@
           {{#link-to 'index' tagName="li"}}Home{{/link-to}}
           {{#link-to 'register' tagName="li"}}Sign Up{{/link-to}}
           {{#link-to 'login' tagName="li"}}Log In{{/link-to}}
+          {{#link-to 'items' tagName="li"}}Items{{/link-to}}  
         </ul>
         
         <h2>Welcome to Backdraft</h2>
@@ -22,11 +23,6 @@
     
     <script type="text/x-handlebars" id="index">        
         <header>
-            <ul>
-                {{#each item in model}}
-                    <li>{{item}}</li>
-                {{/each}}
-            </ul>  
         </header>     
         
         <div class="ui two column middle aligned relaxed grid basic segment">
@@ -204,6 +200,19 @@
     <script type="text/x-handlebars" id="account">
         <h1>Hello {{firstName}} {{lastName}}</h1>
     </script>
+    
+    <script type="text/x-handlebars" id="items">
+        <ul>
+            {{#each}}
+                <li>{{#link-to 'item' this}}{{title}}{{/link-to}} - {{description}}</li>
+            {{/each}}
+        </ul>  
+    </script>    
+    
+    <script type="text/x-handlebars" id="item">
+        <h1>{{title}}</h1>
+        <p>{{description}}</p>
+    </script>     
     
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.js"></script>
