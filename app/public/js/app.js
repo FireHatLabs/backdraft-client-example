@@ -1,7 +1,14 @@
-bdApp = Ember.Application.create();
+bdApp = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
 
 bdApp.Router.map(function() {
-  // put your routes here
+  
+  this.route('register');
+  this.route('login');
+
+  this.route('account');
+
 });
 
 bdApp.IndexRoute = Ember.Route.extend({
