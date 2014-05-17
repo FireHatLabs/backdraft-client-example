@@ -202,16 +202,36 @@
     </script>
     
     <script type="text/x-handlebars" id="items">
+        <div class='row'>
+              <div class='col-sm-3'>
+                <div class='list-group'>
+                  {{#each}}
+                    {{#link-to 'item' this classNames='list-group-item'}}
+                      {{title}}
+                    {{/link-to}}
+                  {{/each}}
+                </div>
+            </div>
+            <div class='col-sm-9'>
+              {{outlet}}
+            </div>
+        </div>
+        <!--
         <ul>
             {{#each}}
                 <li>{{#link-to 'item' this}}{{title}}{{/link-to}} - {{description}}</li>
             {{/each}}
-        </ul>  
+        </ul> 
+        -->
     </script>    
     
     <script type="text/x-handlebars" id="item">
         <h1>{{title}}</h1>
         <p>{{description}}</p>
+    </script>   
+    
+    <script type="text/x-handlebars" id="items/index">
+        <h1>Pick a Product</h1>
     </script>     
     
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.js"></script>

@@ -7,8 +7,10 @@ bdApp.Router.map(function() {
   this.route('login');
   this.route('account');
     
-  this.resource('items');
-  this.resource('item',  { path: 'items/:title' });
+  this.resource('items', function () {
+    this.resource('item',  { path: '/:title' });
+  });
+  
 });
 
 bdApp.IndexRoute = Ember.Route.extend({
