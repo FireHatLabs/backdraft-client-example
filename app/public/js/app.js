@@ -3,16 +3,18 @@ bdApp = Ember.Application.create({
 });
 
 bdApp.Router.map(function() {
-  
   this.route('register');
   this.route('login');
-
   this.route('account');
-
 });
 
 bdApp.IndexRoute = Ember.Route.extend({
   model: function() {
     return ['red', 'yellow', 'blue'];
   }
+});
+
+bdApp.AccountController = Ember.Controller.extend({
+  firstName: 'Bobby',
+  lastName: 'Tables'
 });
