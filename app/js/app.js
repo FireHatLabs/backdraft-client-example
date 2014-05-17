@@ -1,10 +1,10 @@
-App = Ember.Application.create();
+bdApp = Ember.Application.create();
 
-App.Router.map(function() {
+bdApp.Router.map(function() {
   // put your routes here
 });
 
-App.IndexRoute = Ember.Route.extend({
+bdApp.IndexRoute = Ember.Route.extend({
   model: function() {
     return ['red', 'yellow', 'blue'];
   }
