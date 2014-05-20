@@ -30,16 +30,16 @@
             <div class="ui error form segment">
              <h1>Log In</h1>
                 
-              <div class="ui error message" ng-if="loginError">
+              <div class="ui error message">
                 <div class="header">Login Error</div>
                 <p>Could not sign in!</p>
               </div>   
                 
-                <form ng-submit="login()">
+                <form>
                   <div class="field">
                     <label>Username</label>
                     <div class="ui left labeled icon input">
-                        <input type="text" placeholder="Email" ng-model="credentials.email">
+                        <input type="text" placeholder="Email">
                       <i class="user icon"></i>
                       <div class="ui corner label">
                         <i class="asterisk icon"></i>
@@ -49,7 +49,7 @@
                   <div class="field">
                     <label>Password</label>
                     <div class="ui left labeled icon input">
-                      <input type="password" placeholder="Password" ng-model="credentials.password">
+                      <input type="password" placeholder="Password">
                       <i class="lock icon"></i>
                       <div class="ui corner label">
                         <i class="asterisk icon"></i>
@@ -91,16 +91,16 @@
             <div class="ui error form segment">
              <h1>Log In</h1>
                 
-              <div class="ui error message" ng-if="loginError">
+              <div class="ui error message">
                 <div class="header">Login Error</div>
                 <p>Could not sign in!</p>
               </div>   
                 
-                <form ng-submit="login()">
+                <form>
                   <div class="field">
                     <label>Username</label>
                     <div class="ui left labeled icon input">
-                        <input type="text" placeholder="Email" ng-model="credentials.email">
+                        <input type="text" placeholder="Email">
                       <i class="user icon"></i>
                       <div class="ui corner label">
                         <i class="asterisk icon"></i>
@@ -110,7 +110,7 @@
                   <div class="field">
                     <label>Password</label>
                     <div class="ui left labeled icon input">
-                      <input type="password" placeholder="Password" ng-model="credentials.password">
+                      <input type="password" placeholder="Password">
                       <i class="lock icon"></i>
                       <div class="ui corner label">
                         <i class="asterisk icon"></i>
@@ -118,7 +118,7 @@
                     </div>
                   </div>
                     
-                    <button class="ui blue submit button" type="submit">Login</button>            
+                    <button {{action 'login'}} class='ui blue submit button'>Login</button>            
                 </form>
             </div>
           </div>
@@ -146,15 +146,15 @@
           <h1>Login or Register</h1>
         </header>     
         
-        <form class="ui form warning error segment" ng-submit="register()">
+        <form class="ui form warning error segment">
               <h1>Register</h1>
             
-              <div class="ui error message" ng-if="registerError">
+              <div class="ui error message">
                 <div class="header">Registration Error</div>
                 <p>There was a problem with your registration</p>
               </div>       
                 
-              <div class="ui warning message" ng-if="registerValidator">
+              <div class="ui warning message">
                 <div class="header">Could you check something!</div>
                 <ul class="list">
                   <li>You forgot your <b>first name</b></li>
@@ -165,26 +165,26 @@
               <div class="two error fields">
                 <div class="field">
                   <label>First Name</label>
-                  <input placeholder="First Name" type="text" ng-model="registration.firstName">
-                  <div class="ui red pointing above ui label" ng-if="invalidFirstName">Enter a first name</div>
+                  <input placeholder="First Name" type="text">
+                  <div class="ui red pointing above ui label">Enter a first name</div>
                 </div>
                 <div class="field">
                   <label>Last Name</label>
-                  <input placeholder="Last Name" type="text" ng-model="registration.lastName">
-                  <div class="ui red pointing above ui label" ng-if="invalidLastName">Enter a last name</div>
+                  <input placeholder="Last Name" type="text">
+                  <div class="ui red pointing above ui label">Enter a last name</div>
                 </div>
               </div>
               <div class="field">
                 <label>Email</label>
-                <input placeholder="Email Address" type="text" ng-model="registration.email">
+                <input placeholder="Email Address" type="text">
               </div>
               <div class="field">
                 <label>Password</label>
-                <input type="password" placeholder="Password" ng-model="registration.password">
+                <input type="password" placeholder="Password">
               </div>
               <div class="field">
                 <label>Confirm Password</label>
-                <input type="password" placeholder="Confirm Password" ng-model="confirmPassword">
+                <input type="password" placeholder="Confirm Password">
               </div>    
         
             <button class="ui blue submit button" type="submit">Submit</button>
