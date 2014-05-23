@@ -15,22 +15,33 @@ BDApp.LoginController = Ember.ArrayController.extend({
   password: 'Tables',
   isAuthenticated: false,
   actions: {
-    login: function() {
+    login: function () {
       console.log('login called');
     },
-    logout: function() {
+    logout: function () {
       console.log('logout called');
     }
   }
 });
 
-BDApp.RegistrationController = Ember.ArrayController.extend({
-  template: 'register',
-  username: 'Bobby',
-  password: 'Tables',
+BDApp.RegisterController = Ember.ArrayController.extend({
   actions: {
     register: function() {
       console.log('register called');
+
+      var registration = this.store.createRecord('registration', {
+        firstName: this.get('firstName'),
+        lastName: this.get('lastName'),
+        email: this.get('email'),
+        password: this.get('password')
+      });
+
+      var controller = this;
+
+      registration.save().then(function(registration) {
+        console.log('Time to log in');
+        controller.transitionToRoute('account');
+      });
     }
   }
 });

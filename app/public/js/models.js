@@ -12,3 +12,11 @@ BDApp.Comment = DS.Model.extend({
   addedAt:      DS.attr('date'),
   item:         DS.belongsTo('item')
 });
+
+BDApp.Registration = DS.Model.extend({
+  firstName:    DS.attr('string'),
+  lastName:     DS.attr('string'),
+  email:        DS.attr('string'),
+  password:     DS.attr('string')
+});
+
