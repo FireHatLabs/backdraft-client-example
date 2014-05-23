@@ -22,6 +22,6 @@ BDApp.AccountRoute = Ember.Route.extend({
 BDApp.ItemsRoute = Ember.Route.extend({
   model: function() {
     return this.store.findAll('item');
-    // Server Side: return this.store.find('item', { order: 'title' });
+    //return this.store.find('item', { order: 'title' });
   }
 });

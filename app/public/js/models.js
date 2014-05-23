@@ -1,5 +1,8 @@
-//BDApp.ApplicationAdapter = DS.RESTAdapter.extend();
-BDApp.ApplicationAdapter = DS.FixtureAdapter.extend();
+//BDApp.ApplicationAdapter = DS.FixtureAdapter.extend();
+BDApp.ApplicationAdapter = DS.RESTAdapter.extend({
+  host: 'http://127.0.0.1:3000'
+});
+
 
 BDApp.Item = DS.Model.extend({
   title:        DS.attr('string'),

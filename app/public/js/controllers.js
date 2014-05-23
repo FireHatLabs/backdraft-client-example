@@ -1,5 +1,5 @@
 BDApp.ItemsController = Ember.ArrayController.extend({
-  sortProperties: ['title'],
+  /*sortProperties: ['title'],*/
   sortAscending: true,
   itemsCount: Ember.computed.alias('length')
 });
