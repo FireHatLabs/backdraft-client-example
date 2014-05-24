@@ -1,7 +1,22 @@
 BDApp.ItemsController = Ember.ArrayController.extend({
   sortProperties: ['title'],
   sortAscending: true,
-  itemsCount: Ember.computed.alias('length')
+  itemsCount: Ember.computed.alias('length'),
+  addForm: function () {
+    return this.store.createRecord('item', {
+      item: this.get('model')
+    });
+  }.property('model'),
+  actions: {
+    add: function() {
+      console.log('add called');
+      var controller = this;
+      this.get('addForm').set('description', '');
+      this.get('addForm').save().then(function(item) {
+        controller.get('model.items').addObject(item);
+      });
+    }
+  }  
 });
 
 BDApp.AccountController = Ember.ArrayController.extend({
