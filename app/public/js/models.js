@@ -23,3 +23,9 @@ BDApp.Registration = DS.Model.extend({
   password:     DS.attr('string')
 });
 
+BDApp.Account = DS.Model.extend({
+  firstName:    DS.attr('string'),
+  lastName:     DS.attr('string'),
+  email:        DS.attr('string')
+});
+
