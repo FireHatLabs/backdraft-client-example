@@ -26,7 +26,9 @@ var Controllers = function Controllers (BDApp) {
   });
 
   BDApp.AccountController = Ember.ArrayController.extend({
-    isAuthenticated: false,
+    isAuthenticated: function() {
+      return BDApp.ApplicationController.get('isAuthenticated');
+    },
     itemsCount: Ember.computed.alias('length')
   });
 
@@ -43,6 +45,7 @@ var Controllers = function Controllers (BDApp) {
 
         login.save().then(function (auth) {
           console.log('Log in!');
+          BDApp.ApplicationController.isAuthenticated = true;
           controller.transitionToRoute('account');
         });        
       },
