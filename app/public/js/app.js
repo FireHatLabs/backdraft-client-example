@@ -1,20 +1,18 @@
-var BDApp = Ember.Application.create({
-  LOG_TRANSITIONS: true
-});
+$(function() {
 
-BDApp.ApplicationSerializer = DS.ActiveModelSerializer.extend({
-  primaryKey: '_id'
-});
+  
+  Templates(function() {
+    var BDApp = Ember.Application.create({
+      LOG_TRANSITIONS: true
+    });
 
-function loadTemplate(name) {
-  return $.get('hb/'+name+'.hb').then(function(src) {
-    $("body").prepend(src);
+    BDApp.ApplicationSerializer = DS.ActiveModelSerializer.extend({
+      primaryKey: '_id'
+    });
+    
+    Models(BDApp);
+    Controllers(BDApp);
+    Routes(BDApp);   
   });
-}
 
-loadTemplate('nav');
-loadTemplate('index');
-loadTemplate('login');
-loadTemplate('registration');
-loadTemplate('account');
-loadTemplate('item');
+});
