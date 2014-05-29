@@ -18,7 +18,7 @@
               <div class="field">
                 <label>Username</label>
                 <div class="ui left labeled icon input">
-                    <input type="text" placeholder="Email">
+                    {{input type="text" value=email size="50" placeholder="Email Address"}}
                   <i class="user icon"></i>
                   <div class="ui corner label">
                     <i class="asterisk icon"></i>
@@ -28,7 +28,7 @@
               <div class="field">
                 <label>Password</label>
                 <div class="ui left labeled icon input">
-                  <input type="password" placeholder="Password">
+                  {{input type="password" value=password size="50" placeholder="Password"}}
                   <i class="lock icon"></i>
                   <div class="ui corner label">
                     <i class="asterisk icon"></i>
