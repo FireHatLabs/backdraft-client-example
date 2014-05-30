@@ -32,7 +32,7 @@ angular.module('backdraft.controllers', ['backdraft.services'])
 				function () {
 					var next = $location.nextAfterLogin || '/account';
 					$location.nextAfterLogin = null;
-					AppAuth.currentUser = $scope.loginResult.user;
+					AppAuth.currentUser = $scope.loginResult.id;
 					$location.path(next);
 				},
 				function (res) {

@@ -7,9 +7,28 @@ angular.module('backdraft', [
 	})
 
 .config(function ($routeProvider, $locationProvider, $httpProvider) {
+    var isAuthenticated = function($q, $timeout, $http, $location, $rootScope) {
+      var deferred = $q.defer();
+      $http.get(urlBase + '/authenticated').success(function(auth){
+        if (auth !== '') {
+          $timeout(deferred.resolve, 0);
+        } else {
+          $rootScope.message = "You must log in.";
+          $timeout(function(){deferred.reject();}, 0);
+          $location.url('/login');
+        }
+      });
+      return deferred.promise;
+    };
+
+
+
 		$routeProvider.when('/account', {
 			templateUrl: 'account/index.html',
-			controller: 'AppCtrl'
+			controller: 'AppCtrl',
+      resolve: {
+        loggedin: isAuthenticated
+      }
 		});
 
 		$routeProvider.when('/register', {
@@ -51,5 +70,10 @@ angular.module('backdraft', [
 			console.log('AppAuth.currentUser', AppAuth.currentUser);
 			console.log('$location.path()', $location.path());
 		});
+
+    $rootScope.logout = function() {
+      $rootScope.message = "Logged out.";
+      $http.post('/logout');
+    }
 	});
 
